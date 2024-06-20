@@ -11,7 +11,7 @@ namespace UnOrderedMultiMapTest
         static void Main(string[] args)
         {
             UnOrderedMultiMapWapper.CSharpUnOrderedMultiMap<int, int> test = new UnOrderedMultiMapWapper.CSharpUnOrderedMultiMap<int, int>();
-            for (int i = 0; i < 11; i++)
+            for (int i = 11; i >= 0; i--)
             {
                 test.emplace(i + 1, (i + 2));
             }

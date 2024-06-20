@@ -11,7 +11,7 @@ namespace MultiMapText
         static void Main(string[] args)
         {
             MultiMapWapper.CSharpMultiMap<int, int> test = new MultiMapWapper.CSharpMultiMap<int, int>();
-            for (int i = 0; i < 11; i++)
+            for (int i = 11; i >= 0; i--)
             {
                 test.emplace(i + 1, (i + 2));
             }
