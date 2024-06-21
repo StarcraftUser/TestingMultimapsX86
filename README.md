@@ -24,6 +24,10 @@ foreach를 사용할 수 있습니다.
 
 코드가 마음에 들지 않는 노가다성 코드라서 좋은 코드는 아닌듯하고 누군가가 여기저기에서 사용하다가 심각한 오류에 직면하실 수도 있으실것 같아 걱정이되어 32bit(X86)용만 올려봅니다.
 
+그럼에도 불구하고 꼭 64bit(X64)용을 사용해보고 싶다면 아래 링크로 이동하시길 바랍니다.
+
+https://github.com/naverstarcraft/TestingMultimapsX64
+
 감사합니다.
 
 /*========================================*/
@@ -55,5 +59,9 @@ This upload is for testing purposes, specifically for 32-bit (X86).
 The code is a manual labor-intensive code that I'm not entirely satisfied with, and I'm worried someone might encounter serious errors if they use it in various places.
 
 Therefore, I'm only uploading it for 32-bit (X86) purposes.
+
+If you still want to try using the 64-bit (x64) version, please follow the link below.
+
+https://github.com/naverstarcraft/TestingMultimapsX64
 
 Thank you.
