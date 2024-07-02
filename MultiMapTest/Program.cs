@@ -107,9 +107,12 @@ namespace MultiMapText
             }
             Console.WriteLine("=====================================");
             Console.WriteLine("=====================================");
-            var find_element = StringClassMulitMap.find("10");
 
-            Console.WriteLine(find_element.GetValue().name);
+            if (StringClassMulitMap.contains("10"))
+            {
+                var find_element = StringClassMulitMap.find("10");
+                Console.WriteLine(find_element.GetValue().name);
+            }
 
             StringClassMulitMap.clear();
 
@@ -143,16 +146,27 @@ namespace MultiMapText
             ClassStringMulitMap1.clear();
             Console.WriteLine("=====================================");
             Console.WriteLine("=====================================");
-            Console.WriteLine("===============Swap==================");
             test.Swap(test1);
             test.erase(15);
             var testIter = test.lower_bound(15);
             Console.WriteLine("Key : " + testIter.GetKey() + " , Value : " + testIter.GetValue());
             testIter = test.upper_bound(15);
             Console.WriteLine("Key : " + testIter.GetKey() + " , Value : " + testIter.GetValue());
+            Console.WriteLine("===============Swap==================");
             Console.WriteLine("=====================================");
             Console.WriteLine("=====================================");
             for (var iter = test.begin(); iter != test.end(); iter++)
+            {
+                Console.WriteLine("Key : " + iter.GetKey() + " , Value : " + iter.GetValue());
+            }
+
+            Console.WriteLine("=====================================");
+            Console.WriteLine("=====================================");
+            Console.WriteLine("=========copy constructor============");
+            MultiMapWapper.CSharpMultiMap<int, int> CopyMultimap = null;
+            CopyMultimap = new MultiMapWapper.CSharpMultiMap<int, int>(test1);
+
+            for (var iter = CopyMultimap.begin(); iter != CopyMultimap.end(); iter++)
             {
                 Console.WriteLine("Key : " + iter.GetKey() + " , Value : " + iter.GetValue());
             }
