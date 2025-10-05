@@ -1,75 +1,94 @@
-C# TestingMultimapsX86
+### C# TestingMultimapsX86
 
-C++의 template std::multimap과 std::unordered_multimap을 C++/CLI을 이용하여 C#에서 사용할 수 있게 dll파일로 Wapping하였습니다.
+이 프로젝트는 **C++의 `std::multimap`과 `std::unordered_multimap` 템플릿**을 C++/CLI로 Wrapping하여 C#에서 사용할 수 있도록 만든 DLL입니다.  
+C# 프로젝트에 DLL을 추가하여 테스트할 수 있습니다.
 
-dll 파일을 C#프로젝트에 추가하여 테스트한 파일입니다.
+- `CSharpMultiMap` → `std::multimap` 대응 클래스  
+- `CSharpUnOrderedMultiMap` → `std::unordered_multimap` 대응 클래스  
+- 두 클래스 모두 **Generics** 형식을 지원합니다.  
 
-multimap의 클래스명은 CSharpMultiMap이고 unordered_multimap의 클래스명은 CSharpUnOrderedMultiMap입니다.
+---
 
-두 함수 모두 Generics 형식입니다.
+### enum 지원
+~~enum은 Key 값 또는 Value 값으로 사용이 불가능합니다. enum을 사용 못하게 막았습니다.~~  
+~~굳이 사용하고 싶으시다면 int로 형변환하여 사용하시길 바랍니다.~~
 
-~enum은 Key값 또는 Value값으로 사용이 불가능합니다. enum을 사용 못하게 막았습니다.~
+이전 버전에서는 enum을 Key 또는 Value로 사용할 수 없었으나, 현재는 **enum도 사용 가능합니다.**  
+필요하다면 `int`로 형변환하여 사용하셔도 무방합니다.  
 
-~굳이 사용하고 싶으시다면 int로 형변환하여 사용하시길 바랍니다.~
+---
 
-이전 버전에는 enum을 Key 또는 Value로 사용할 수 없었으나, 현재는 enum도 사용 가능합니다.
+### 클래스 Key 값 관련
+~~클래스 값을 Key 값으로 설정하게 되면 메모리 누수가 일어날 수 있습니다.~~  
+~~erase(Key) 함수를 사용하거나 Clear() 함수를 사용해야 클래스 Key 값이 지워지고 메모리 누수를 막을 수 있습니다.~~  
+~~클래스를 Value 값으로 설정하는 것은 메모리 누수는 발생하지 않습니다.~~
 
-필요하다면 int로 형변환하여 사용하셔도 무방합니다.
+이전 버전에서는 클래스 값을 Key 값으로 사용할 경우 메모리 누수가 발생했으나, 현재는 수정되어 문제가 발생하지 않습니다.  
 
-클래스값을 Key 값으로 설정하게되면 메모리 누수가 일어날 수 있습니다.
+---
 
-erase(Key) 함수를 사용하거나 Clear() 함수를 사용해야 클래스 Key값이 지워지고 메모리 누수를 막을 수 있습니다.
-
-foreach를 사용할 수 있습니다.
-
-클래스를 Value 값으로 설정하는 것은 메모리 누수는 발생하지 않습니다.
-
-테스트 목적으로 올리는 것이라서 32bit(X86)용으로 올려봅니다.
-
-코드가 마음에 들지 않는 노가다성 코드라서 좋은 코드는 아닌듯하고 누군가가 여기저기에서 사용하다가 심각한 오류에 직면하실 수도 있으실것 같아 걱정이되어 32bit(X86)용만 올려봅니다.
-
-그럼에도 불구하고 꼭 64bit(X64)용을 사용해보고 싶다면 아래 링크로 이동하시길 바랍니다.
-
+### 기타 기능
+- `foreach` 구문을 사용할 수 있습니다.  
+- 테스트 목적으로 **32bit(X86)** 환경에서 동작하도록 빌드되었습니다.  
+- 64bit(X64) 버전이 필요하신 분들은 아래 링크를 참고하세요.  
 https://github.com/naverstarcraft/TestingMultimapsX64
 
-감사합니다.
+---
+
+### 참고
+코드가 다소 장황하고 반복적인 구조(노가다성)를 가지고 있어 우아한 코드라고 보기는 어렵습니다.
+사용 중에 예상치 못한 오류가 발생할 수 있으니 사용 시 주의하시기 바랍니다.
+
+감사합니다.  
+
+---
 
 /*========================================*/
 
-C# TestingMultimapsX86
+---
 
-Using C++/CLI, I've wrapped template std::multimap and std::unordered_multimap from C++ to be usable in C# as DLL files.
+### C# TestingMultimapsX86
 
-This is a file that was tested by adding the DLL file to a C# project.
+This project provides a DLL that wraps **C++ `std::multimap` and `std::unordered_multimap` templates** using C++/CLI, making them available for use in C#.  
+You can add the DLL to your C# project and run tests with it.
 
-The class name for multimap is CSharpMultiMap, and for unordered_multimap, it is CSharpUnOrderedMultiMap.
+- `CSharpMultiMap` → corresponds to `std::multimap`  
+- `CSharpUnOrderedMultiMap` → corresponds to `std::unordered_multimap`  
+- Both classes support **Generics**.  
 
-Both functions are in generic format.
+---
 
-~Enums cannot be used as key or value types. I've prevented the use of enums.~
+### enum Support
+~~Enums could not be used as a Key or Value, and their usage was restricted.~~  
+~~If you really wanted to use them, you had to cast them to `int`.~~
 
-~If you wish to use them, please convert them to int and use.~
+In previous versions, enums could not be used as a Key or Value, but they are now **fully supported**.  
+If necessary, you may still cast an enum to `int` for use.  
 
-In previous versions, enums could not be used as a Key or Value, but they are now supported.
+---
 
-If necessary, you may safely cast an enum to an int for use.
+### Class Key Values
+~~Using a class as a Key could cause memory leaks.~~  
+~~You had to call `erase(Key)` or `Clear()` to remove class Key values and prevent leaks.~~  
+~~Using a class as a Value did not cause memory leaks.~~
 
-If you use a class as a key value, memory leaks may occur.
+In previous versions, using a class as a Key could result in memory leaks, but this issue has now been fixed and no longer occurs.  
 
-To prevent memory leaks, you need to use the erase(Key) function or the Clear() function to remove the class key value."
+---
 
-Using a class object as a value does not cause memory leaks.
+### Other Features
+- Supports the `foreach` loop.  
+- Built for **32-bit (X86)** environments for testing purposes.  
+- If you need a 64-bit (X64) version, please refer to the link below.  
 
-You can use foreach.
+Link  
 
-This upload is for testing purposes, specifically for 32-bit (X86).
+---
 
-The code is a manual labor-intensive code that I'm not entirely satisfied with, and I'm worried someone might encounter serious errors if they use it in various places.
+### Notes
+Notes The code is somewhat verbose and repetitive (boilerplate-heavy), so it may not be the most elegant solution.
+Unexpected errors may occur, so please use with caution.
 
-Therefore, I'm only uploading it for 32-bit (X86) purposes.
+Thank you.  
 
-If you still want to try using the 64-bit (x64) version, please follow the link below.
-
-https://github.com/naverstarcraft/TestingMultimapsX64
-
-Thank you.
+---
