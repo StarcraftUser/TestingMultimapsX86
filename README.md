@@ -31,7 +31,7 @@ C# 프로젝트에 DLL을 추가하여 테스트할 수 있습니다.
 - `foreach` 구문을 사용할 수 있습니다.  
 - 테스트 목적으로 **32bit(X86)** 환경에서 동작하도록 빌드되었습니다.  
 - 64bit(X64) 버전이 필요하신 분들은 아래 링크를 참고하세요.  
-https://github.com/naverstarcraft/TestingMultimapsX64
+https://github.com/StarcraftUser/TestingMultimapsX64
 
 ---
 
@@ -81,7 +81,7 @@ In previous versions, using a class as a Key could result in memory leaks, but t
 - Built for **32-bit (X86)** environments for testing purposes.  
 - If you need a 64-bit (X64) version, please refer to the link below.  
 
-Link  
+https://github.com/StarcraftUser/TestingMultimapsX64
 
 ---
 
